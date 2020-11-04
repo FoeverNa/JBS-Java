@@ -1,0 +1,41 @@
+@startuml
+
+interface IFoo{
+    + void method(int x, int y);
+
+}
+
+abstract class Bar{
+   + static String name;
+   # int x;
+   ~ int y;
+   Foo foo;
+   - void method(String string);
+}
+class Qoo{
+    Foo foo;
+}
+class Foo{
+    int x;
+    void methodA();
+}
+
+Foo -Left|> IFoo
+Bar -o Foo
+Qoo -Right* Foo
+
+title Class Diagram Title
+
+note bottom of Bar
+ void method() {
+ return string;
+ }
+end note
+
+note bottom of Foo
+Foo는 Bar가 Aggregation 한다.
+Foo는 Qoo가 Composition 한다
+end note
+
+
+@enduml
