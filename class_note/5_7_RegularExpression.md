@@ -48,5 +48,49 @@
   | [^x]    | x가 아닌 것                 |
   | [^0-9]  | 숫자가 아닌 것              |
 
+- \ 축약 문자
+
+  | regexp   | 의미                                                |
+  | -------- | --------------------------------------------------- |
+  | \^ , \ . | \뒤에 나오는 문자를 문자로 처리(메타 문자가 아니다) |
+  | \b       | 단어의 경게를 찾는다                                |
+  | \B       | 단어의 경계가 아닌 것을 찾는다                      |
+  | \d       | 숫자를 찾는다                                       |
+  | \D       | 숫자가 아닌 것을 찾는다                             |
+  | \s       | 공백 문자를 찾는다                                  |
+  | \S       | 공백 문자가 아닌 것을 찾는다                        |
+  | \w       | [a-zA-Z0-9_]                                        |
+  | \W       | [^a-zA-Z0-9_]                                       |
+
+- 유용한 정규식
+
+  - 한글 이름: ^[가-힣]{2,10}
+  - 핸드폰 번호: ^01[0167][\-\s]?\d{3,4}\d{4}
+  - 이메일주소:^[\w0-9]+\@\w+\.\w{2,3}(\w{2})?
+
 ## 자바에서 정규표현식
+
+### Pattern 클래스
+
+- Java에서 정규표현식을 사용하기 위해서 있는 클래스. String으로 작성된 정규표현식을Pattern 클래스의 객체로 Compile하여 사용한다
+- 주요메소드
+  - compile(): 입력받은 정규표현식을 Pattern객체로 만든다.
+  - matcher(): Pattern 객체에 정규표현식에 입력값이 맞는지  비교할 Matcher 객체를 생성한다
+  - matches(): 정규표현식과 비교 대상을 입력받아 맞는지 비교하여 boolean 출력한다
+- 주로 정규 표현식을 입력받아 compile을 통해 pattern 객체를 생성하여 matcher메소드로 Matcher객체 만들어서 입력받은 값을 정규표현식과 비교하는데 사용한다
+
+#### Matcher 클래스
+
+- 입력받은 입력값과 patten에 입력되어 있는 정규표현식이 일치하는지 확인하는 클래스
+  - patten 객체에 matcher()메소드를 사용하여 객체를 생성할 수 있다
+- 주요 메소드
+  - matchs(): 입력 전체 영역이 pattern과 일치하는지 확인
+  - find() : 입력값중에 pattern과 일치하는 값이 있는지 sacn한다. 있다면 true를 반환한다(scan을 여러번 반복할 수 있다)
+  - lookingAt(): 입력값이 처음부터 패턴과 일치하는지 확인하는 메소드
+  - replaceFirst(): 첫번째로 pattern과 일치하는 부분을 입력받은 String으로 대체한다
+  - group():: find()메소드를 통해 scan해서 patten과 일치하는 값들을 retrun한다
+
+- 참고자료:
+  - https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Pattern.html	
+  - https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Matcher.html
 

@@ -43,7 +43,7 @@
   - 대기시간도 있기 때문에 오버헤드가 yield()보다 크다
 - join() 해당 스레드의 동작이 종료될 때까지 기다렸다가 다른 작업을 수행한다 -> 스레드 동기화에 사용 될 수 있다
   - 언제까지 기다리게 할 것인지 시간을 지정할 수 있다
-  - https://www.javatpoint.com/join()-method 참고자료
+  - 참고자료: https://www.javatpoint.com/join()-method 
 - setPriority를 통해 스레드의 우선순위를 조정한다
   - OS에서도 자동으로 스레드들의 priority를 조정하기 때문에 조정해도 큰차이를 느낄 수 없다
 - yield() 다른 스레드에 양보하고 바로 실행대기(sleep(0)과 같이)
