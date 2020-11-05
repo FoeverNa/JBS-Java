@@ -62,7 +62,7 @@ public class Main {
 
         class CallableWork implements Callable<String> {
             @Override
-            public String call() throws Exception {
+            public String call() throws InterruptedException {
                 Thread.sleep(10000);
                 return "작업종료";
             }
@@ -82,12 +82,14 @@ public class Main {
        es.shutdown(); // Thread.join()과 마찬가지로 작업이 끝나기를 기다려서 종료한다.
         //shutdown now는 기다리않고 바로 종료하게 된다
         // 복잡해보이지만 정형화되어 있는 작업
-
+        for (int i = 100; i < 200 ; i++) {
+            es.submit(new Work());
+        }
 
         Thread.sleep(1000); //메인 스레드가 먼저도착할수있으니 기다려주는애
 
 
-        future.cancel(true);     // cancel을 호출하고 나면 get을 호출할 수 없다(CancellationException) 발생
+//        future.cancel(true);     // cancel을 호출하고 나면 get을 호출할 수 없다(CancellationException) 발생
                                                     // mayInterruptIfRunning이 true이면, 스레드에 interrupt도 발생시킨다.
 
 

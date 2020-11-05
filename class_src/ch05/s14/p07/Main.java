@@ -29,7 +29,7 @@ public class Main {
 
         System.out.println(sem.tryAcquire()); // Blocking 하지 않고, 실패하면(세마포없어도) false 리턴하고 다음으로 넘어감 /
         try {
-            System.out.println(sem.tryAcquire(2000, TimeUnit.MILLISECONDS)); // Blocking을 하도록 시간 지정할 수 도 있따
+            System.out.println(sem.tryAcquire(2000,TimeUnit.MILLISECONDS)); // Blocking을 하도록 시간 지정할 수 도 있따
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
