@@ -5,8 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ScoreCollectionTest {
-    public ScoreCollectionTest() {
-    }
 
     @Test
     public void arithmeticMeanOfFiveAndSevenResultsInSix() {
@@ -33,4 +31,6 @@ public class ScoreCollectionTest {
         int actualResult = collection.arithmeticMean();
         Assert.assertEquals(15L, (long)actualResult);
     }
+
+
 }

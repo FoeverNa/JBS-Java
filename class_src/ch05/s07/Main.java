@@ -28,12 +28,12 @@ public class Main {
         //문자열 그대로 넣어서 그대로 매칭시켜보는 것이 가장 기본적인 형태
 
         // boundary는 문자열의 시작, 끝, 공백, 문장기호로 구분되는지 여부 확인 (대소문자로 의미 반전)
-        Pattern pattern = Pattern.compile("\\bjava\\b", Pattern.MULTILINE); // 정규표현식을 pattern에 저장할 수 있음
+        Pattern pattern = Pattern.compile("\\bJava\\b", Pattern.MULTILINE); // 정규표현식을 pattern에 저장할 수 있음
         // \\역슬레시 쓰려면 두개씩 사용해야 한다
         // java에서는 falg를 지원안하고  Pattern.에 모아논것을 사용할 수 있다
         Matcher matcher = pattern.matcher("Java is Java and Java will be Java");
 
-        while (matcher.find()) { //fid()의 메소드의 경우 찾으면 true, 못찾으면 false 반환
+        while (matcher.find()) { //find()의 메소드의 경우 찾으면 true, 못찾으면 false 반환
             System.out.println(matcher.start()+","+matcher.end()); //찾은 것에 시작과 끝에 인덱스를 알려준다);
         }
 
